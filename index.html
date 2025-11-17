@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Start — Casual MITEC</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  :root {
+    --mitec-gold: #D4AF37;
+    --mitec-blue: #224289;
+    --mitec-mid: #006699;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --muted: #58616a;
+    --radius: 12px;
+  }
+
+  body {
+    font-family: "Inter", Arial, sans-serif;
+    background: var(--bg);
+    margin: 0;
+    padding: 20px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .card.quick-start {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    max-width: 720px;
+    margin: 30px auto;
+  }
+
+  .card.quick-start .title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--mitec-blue);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* clickable step styling */
+  .step-link { 
+    text-decoration:none; 
+    color:inherit; 
+    display:flex; 
+    align-items:center; 
+    gap:12px; 
+    transition: transform .18s cubic-bezier(.2,.9,.2,1), box-shadow .18s ease; 
+    cursor:pointer; 
+    border:none; 
+    background:transparent; 
+    width:100%; 
+    text-align:left; 
+    padding:14px; 
+    border-radius:10px;
+    border:1px solid #e9eef6;
+    background:#ffffff;
+    transform: translateY(16px);
+    opacity:0;
+  }
+
+  .step-link.visible {
+    transform:none;
+    opacity:1;
+  }
+
+  .step-link .num { 
+    flex: 0 0 44px; 
+    height:44px;
+    width:44px;
+    border-radius:50%;
+    background:#f3f5f9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    color: var(--mitec-mid);
+  }
+
+  .step-link:hover { 
+    transform:translateY(-4px); 
+    box-shadow:0 8px 20px rgba(20,30,50,0.08); 
+  }
+
+  .step p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color:#1c1f24;
+  }
+
+  /* Lightbox overlay */
+  .lb-overlay { 
+    position:fixed; 
+    inset:0; 
+    display:none; 
+    align-items:center; 
+    justify-content:center; 
+    z-index:9999; 
+  }
+
+  .lb-overlay[aria-hidden="false"] { 
+    display:flex; 
+  }
+
+  .lb-backdrop { 
+    position:absolute; 
+    inset:0; 
+    background:rgba(6,8,12,0.72); 
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(4px); 
+  }
+
+  .lb-content { 
+    position:relative; 
+    max-width:95vw; 
+    max-height:92vh; 
+    z-index:2; 
+    display:flex; 
+    align-items:center; 
+    justify-content:center; 
+    padding:12px; 
+  }
+
+  .lb-inner { 
+    max-width:100%; 
+    max-height:100%; 
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+    gap:10px; 
+  }
+
+  .lb-inner img { 
+    max-width:100%; 
+    max-height:82vh; 
+    border-radius:10px; 
+    box-shadow:0 10px 40px rgba(0,0,0,0.4); 
+    object-fit:contain; 
+  }
+
+  .lb-caption { 
+    color:#f3f6f9; 
+    font-weight:600; 
+    font-size:0.95rem; 
+    text-align:center; 
+  }
+
+  .lb-close { 
+    position:absolute; 
+    right:8px; 
+    top:8px; 
+    background:transparent; 
+    border:none; 
+    color:#fff; 
+    font-size:34px; 
+    line-height:1; 
+    padding:6px 10px; 
+    border-radius:8px; 
+    cursor:pointer; 
+    z-index:3; 
+  }
+
+  .lb-close:hover { 
+    transform:scale(1.05); 
+  }
+
+  @media (max-width:560px){
+    .lb-inner img { max-height:70vh; }
+    .lb-close { font-size:28px; right:4px; top:4px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Quick Start -->
+<div class="card quick-start" aria-labelledby="qs">
+  <div class="title">
+    <i class="fa-solid fa-flag" style="color:var(--mitec-gold)"></i>
+    Get Your Payment — 4 quick steps
+  </div>
+
+  <div class="steps" role="list">
+
+    <a class="step step-link" role="listitem" href="https://www.casualmitec.online/first-time-application" target="_blank" rel="noopener noreferrer">
+      <div class="num">1</div>
+      <p>Register : Submit your Bank Details</p>
+    </a>
+
+    <a class="step step-link" role="listitem" href="https://www.casualmitec.online/sign-in-sign-out" target="_blank" rel="noopener noreferrer">
+      <div class="num">2</div>
+      <p>Perform SIGN IN / SIGN OUT every time you come to work</p>
+    </a>
+
+    <!-- Step 3 uses lightbox -->
+    <button class="step step-link lb-trigger" role="listitem" data-img="https://eus-cdn.sway.static.microsoft/s/RZPlGrjCXdD5QeF2/images/NCPljCf2-Hl4r0?quality=479&allowAnimation=true&embeddedHost=true&filterEffectsFormula=Grayscale=0,Contrast=1.15">
+      <div class="num">3</div>
+      <p>Submit Your Voucher to Guard House for Payment Processing</p>
+    </button>
+
+    <a class="step step-link" role="listitem" href="https://www.casualmitec.online/my-record" target="_blank" rel="noopener noreferrer">
+      <div class="num">4</div>
+      <p>Check your Clocking and Payment Record</p>
+    </a>
+
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lb-overlay" aria-hidden="true" aria-haspopup="dialog">
+  <div class="lb-backdrop" data-close></div>
+  <div class="lb-content">
+    <button class="lb-close" data-close>&times;</button>
+    <div class="lb-inner">
+      <img id="lb-image" src="" alt="Voucher Image">
+      <div id="lb-caption" class="lb-caption">Voucher example — tap to close</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Step animation stagger
+  document.addEventListener('DOMContentLoaded', () => {
+    const steps = Array.from(document.querySelectorAll('.step'));
+    steps.forEach((el,i)=> setTimeout(()=> el.classList.add('visible'), i*120));
+  });
+
+  // Lightbox functionality
+  (function(){
+    const lb = document.getElementById('lightbox');
+    const lbImage = document.getElementById('lb-image');
+    const triggers = document.querySelectorAll('.lb-trigger');
+    const closeEls = lb.querySelectorAll('[data-close]');
+
+    function openLightbox(imgSrc) {
+      lbImage.src = imgSrc;
+      lb.setAttribute('aria-hidden', 'false');
+      lb.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lb.setAttribute('aria-hidden', 'true');
+      lb.style.display = 'none';
+      lbImage.src = '';
+      document.body.style.overflow = '';
+    }
+
+    triggers.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const src = btn.getAttribute('data-img');
+        openLightbox(src);
+      });
+    });
+
+    closeEls.forEach(el => el.addEventListener('click', closeLightbox));
+    lb.querySelector('.lb-backdrop').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lb.getAttribute('aria-hidden') === 'false') closeLightbox();
+    });
+    lbImage.addEventListener('click', closeLightbox);
+  })();
+</script>
+
+</body>
+</html>
