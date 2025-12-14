@@ -3,38 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quick Start — Casual MITEC</title>
+<title>Sign In / Sign Out — Casual MITEC</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<!-- FontAwesome -->
+<!-- FontAwesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
   :root {
     --mitec-gold: #D4AF37;
-    --mitec-blue: #224289;
-    --mitec-mid: #006699;
+    --mitec-mid: #224289; /* MITEC Blue */
     --bg: #f7f9fc;
     --card: #ffffff;
-    --muted: #58616a;
+    --muted: #55606a;
     --radius: 12px;
   }
 
   body {
-    font-family: "Inter", Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     background: var(--bg);
     margin: 0;
     padding: 20px;
-    display:flex;
-    justify-content:center;
   }
 
-  .card.quick-start {
+  /* Container */
+  .container {
+    max-width: 400px;
+    margin: 60px auto;
+    text-align: center;
+  }
+
+  /* Logo */
+  .logo {
+    margin-bottom: 30px;
+  }
+
+  .logo img {
+    width: 140px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Card */
+  .card {
     background: var(--card);
     border-radius: var(--radius);
-    padding: 24px;
+    padding: 30px 20px;
     box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+  }
+
+  /* Buttons */
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    margin: 12px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    background-color: var(--mitec-mid); /* MITEC Blue */
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  }
+
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  /* Pulse animation */
+  .btn.pulse::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseEffect 0.5s ease-out forwards;
+  }
+
+  @keyframes pulseEffect {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 0.6;
+    }
+    50% {
+      width: 200%;
+      height: 200%;
+      opacity: 0.3;
+    }
+    100% {
+      width: 300%;
+      height: 300%;
+      opacity: 0;
+    }
+  }
+
+  /* Tagline */
+  .tagline {
+    margin-bottom: 25px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* Attendance notice */
+  .attendance-note {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .attendance-note p {
+    margin: 8px 0;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    margin: 40px 0 20px;
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo">
+    <img src="https://mitec.com.my/static/img/logos/mitec-new-logo.png" alt="MITEC Logo">
+  </div>
+
+  <div class="tagline">
+    MITEC Casual Labour Attendance System<br>
+    Human Resources Department
+  </div>
+
+  <div class="card">
+    <button class="btn" onclick="buttonClick(this, 'https://www.casualmitec.online/sign-in')">
+      <i class="fa-solid fa-right-to-bracket"></i> Sign In
+    </button>
+    <button class="btn" onclick="buttonClick(this, 'https://www.casualmitec.online/sign-out')">
+      <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+    </button>
+    <button class="btn" onclick="buttonClick(this, 'https://www.casualmitec.online/my-record')">
+      <i class="fa-solid fa-clock"></i> My Attendance
+    </button>
+
+    <!-- Attendance notice -->
+    <div class="attendance-note">
+      <p>You are advised to review your attendance entries in the <strong>My Attendance Record</strong> tab. If there are any missing entries, kindly complete your Sign In / Sign Out accordingly.</p>
+      <p>Any questions regarding your salary or payout schedule should be directed to <strong>Ms. Ulfa Amran</strong> at <strong>017-469 4229</strong>.</p>
+      <p>~Thank you for ensuring the accuracy of your attendance ~</p>
+    </div>
+  </div>
+</div>
+
+<footer>© Malaysia International Trade & Exhibition Centre — CasualMITEC</footer>
+
+<script>
+  function buttonClick(btn, url){
+    btn.classList.add('pulse');
+    setTimeout(() => btn.classList.remove('pulse'), 500);
+    setTimeout(() => window.location.href = url, 200); // slight delay to show pulse
+  }
+</script>
+
+</body>
+</html>    box-shadow: 0 6px 24px rgba(0,0,0,0.06);
     max-width: 720px;
     margin: 30px auto;
   }
